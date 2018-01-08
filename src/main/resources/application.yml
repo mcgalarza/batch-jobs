@@ -1,0 +1,151 @@
+server:
+    port: 8010
+---
+spring:
+    profiles: casa
+    batch:
+          job:
+              enabled: false
+security:
+    oauth2:
+          client-id: browserClientIdPassword
+          client-secret: secret
+          token-info-uri: https://septest.colonseguros.com.ar/oauth2/oauth/check_token
+          token-uri: https://septest.colonseguros.com.ar/oauth2/oauth/token
+datasource:
+    emi:
+        url: 'jdbc:mysql://localhost:3336/emisqltest'
+        driver-class-name: 'com.mysql.jdbc.Driver'
+        username: 'emi_paq'
+        password: 'Emi6550*'
+        test-on-borrow: true
+        validation-query: 'SELECT 1 FROM DUAL'
+        log-validation-errors: true
+        max-active: 20
+        initial-size: 4
+debug: true
+
+---
+spring:
+    profiles: local
+    batch:
+          job:
+              enabled: false
+security:
+    oauth2:
+          client-id: browserClientIdPassword
+          client-secret: secret
+          token-info-uri: https://septest.colonseguros.com.ar/oauth2/oauth/check_token
+          token-uri: https://septest.colonseguros.com.ar/oauth2/oauth/token
+datasource:
+    emi:
+        url: 'jdbc:mysql://colontest.cpcudqaf437p.eu-west-1.rds.amazonaws.com:3306/emisqltest'
+        driver-class-name: 'com.mysql.jdbc.Driver'
+        username: 'emi_paq'
+        password: 'Emi6550*'
+        test-on-borrow: true
+        validation-query: 'SELECT 1 FROM DUAL'
+        log-validation-errors: true
+        max-active: 20
+        initial-size: 4
+debug: true
+
+---
+spring:
+    profiles: development
+    batch:
+          job:
+              enabled: false
+security:
+    oauth2:
+          client-id: browserClientIdPassword
+          client-secret: secret
+          token-info-uri: https://sipdesa.colonseguros.com.ar/oauth2/oauth/check_token
+          token-uri: https://sipdesa.colonseguros.com.ar/oauth2/oauth/token
+datasource:
+    emi:
+        url: 'jdbc:mysql://colontest.cpcudqaf437p.eu-west-1.rds.amazonaws.com:3306/emisqltest'
+        driver-class-name: 'com.mysql.jdbc.Driver'
+        username: 'emi_paq'
+        password: 'Emi6550*'
+        test-on-borrow: true
+        validation-query: 'SELECT 1 FROM DUAL'
+        log-validation-errors: true
+        max-active: 20
+        initial-size: 4
+debug: true
+
+---
+spring:
+    profiles: testing
+    batch:
+          job:
+              enabled: false
+security:
+    oauth2:
+          client-id: browserClientIdPassword
+          client-secret: secret
+          token-info-uri: https://septest.colonseguros.com.ar/oauth2/oauth/check_token
+          token-uri: https://septest.colonseguros.com.ar/oauth2/oauth/token
+datasource:
+    emi:
+        url: 'jdbc:mysql://colontest.cpcudqaf437p.eu-west-1.rds.amazonaws.com:3306/emisqltest'
+        driver-class-name: 'com.mysql.jdbc.Driver'
+        username: 'emi_paq'
+        password: 'Emi6550*'
+        test-on-borrow: true
+        validation-query: 'SELECT 1 FROM DUAL'
+        log-validation-errors: true
+        max-active: 20
+        initial-size: 4
+debug: true
+
+---
+spring:
+    profiles: preprod
+    batch:
+          job:
+              enabled: false
+security:
+    oauth2:
+          client-id: browserClientIdPassword
+          client-secret: secret
+          token-info-uri: https://seppreprod.colonseguros.com.ar/oauth2/oauth/check_token
+          token-uri: https://seppreprod.colonseguros.com.ar/oauth2/oauth/token
+datasource:
+    emi:
+        url: 'jdbc:mysql://gaussqlpreprod.cpcudqaf437p.eu-west-1.rds.amazonaws.com:3306/emisqlpreprod'
+        driver-class-name: 'com.mysql.jdbc.Driver'
+        username: 'SEP_PreProd'
+        password: 'fr45TCas'
+        test-on-borrow: true
+        validation-query: 'SELECT 1 FROM DUAL'
+        log-validation-errors: true
+        max-active: 20
+        initial-size: 4
+debug: true
+
+---
+spring:
+    profiles: production
+    batch:
+          job:
+              enabled: false
+security:
+    oauth2:
+          client-id: browserClientIdPassword
+          client-secret: secret
+          token-info-uri: https://sep.colonseguros.com.ar/oauth2/oauth/check_token
+          token-uri: https://sep.colonseguros.com.ar/oauth2/oauth/token
+datasource:
+    emi:
+        url: 'jdbc:mysql://gaussqlprod.cpcudqaf437p.eu-west-1.rds.amazonaws.com:3306/emisqlprod'
+        driver-class-name: 'com.mysql.jdbc.Driver'
+        username: 'emi_paq'
+        password: 'Emi6550*'
+        test-on-borrow: true
+        validation-query: 'SELECT 1 FROM DUAL'
+        log-validation-errors: true
+        max-active: 20
+        initial-size: 4
+debug: true
