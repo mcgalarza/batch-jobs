@@ -4,6 +4,7 @@ import com.redbee.batchjobs.batch.JobCompletionNotificationListener;
 import com.redbee.batchjobs.model.Transaccion;
 import com.redbee.batchjobs.repository.TransaccionRepository;
 import com.redbee.batchjobs.util.FechaUtil;
+import org.joda.time.DateTime;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -34,25 +35,22 @@ public class TransaccionBatchConfiguration {
 
     @Bean
     public RepositoryItemReader<Transaccion> reader() {
-//        Date fechaActual = new Date();
-//        Date fechaDesde = FechaUtil.restarHora(fechaActual);
-//        Date fechaHasta = FechaUtil.restarMediaHora(fechaActual);
-
         Date fechaActual = new Date();
         Date fechaDesde = FechaUtil.restarHora(fechaActual);
-        Date fechaHasta = fechaActual;
+        Date fechaHasta = FechaUtil.restarMediaHora(fechaActual);
 
         Map sorts = new HashMap<>();
         sorts.put("id", Sort.Direction.ASC);
 
         List parametros = new ArrayList();
-//        parametros.add(fechaDesde);
-//        parametros.add(fechaHasta);
+        parametros.add(fechaDesde);
+        parametros.add(fechaHasta);
 
         RepositoryItemReader<Transaccion> transaccionItemReader = new RepositoryItemReader();
         transaccionItemReader.setRepository(transaccionRepository);
-        transaccionItemReader.setMethodName("findAll");
+        transaccionItemReader.setMethodName("findByFechaCreacionBetween");
         transaccionItemReader.setArguments(parametros);
+        transaccionItemReader.setPageSize(10);
         transaccionItemReader.setSort(sorts);
 
         return transaccionItemReader;
@@ -81,7 +79,7 @@ public class TransaccionBatchConfiguration {
     @Bean
     public Step leadsNeotelStep1() {
         return stepBuilderFactory.get("leadsNeotelStep1")
-                .<Transaccion, Transaccion> chunk(2)
+                .<Transaccion, Transaccion> chunk(10)
                 .reader(reader())
                 .processor(processor())
                 .writer(writer())

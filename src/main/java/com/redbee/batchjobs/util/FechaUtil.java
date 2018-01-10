@@ -37,7 +37,6 @@ public class FechaUtil {
      * @return la fecha con media hora menos.
      */
     public static Date restarMediaHora(Date date) {
-//        return getDateTime(date).minusHours(1).toDate();
         return getDateTime(date).minusMinutes(30).toDate();
     }
 
