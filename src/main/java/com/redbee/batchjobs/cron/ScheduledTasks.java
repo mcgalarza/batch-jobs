@@ -21,8 +21,6 @@ public class ScheduledTasks {
     @Qualifier("leadsNeotelJob")
     private Job leadsNeotelJob;
 
-    private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
-
     @Scheduled(cron = "0 */30 * * * *")
     public void leadsNeotelJob() throws Exception {
 //        log.info("cron");
