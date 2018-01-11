@@ -25,7 +25,7 @@ public class ScheduledTasks {
 
     @Scheduled(cron = "0 */30 * * * *")
     public void leadsNeotelJob() throws Exception {
-        log.info("cron");
+//        log.info("cron");
         JobParameters jobParameters = new JobParametersBuilder()
                 .addLong("time", System.currentTimeMillis()).toJobParameters();
         jobLauncher.run(leadsNeotelJob, jobParameters);

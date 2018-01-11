@@ -1,0 +1,6 @@
+batch_jobs:
+  extends:
+    file: ../common-release.yml
+    service: batch_jobs
+  environment:
+  - JAVA_OPTS=-Dgrails.env=preprod

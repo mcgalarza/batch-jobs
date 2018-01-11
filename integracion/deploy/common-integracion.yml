@@ -1,0 +1,10 @@
+batch_jobs:
+        image: docker.dev.redbee.io/batch_jobs:latest
+        container_name: "batch_jobs"
+        ports:
+            - "8096:8080"
+        external_links:
+            - redis-cache-container:redis_server
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro

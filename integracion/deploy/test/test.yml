@@ -1,0 +1,6 @@
+batch_jobs:
+  extends:
+    file: ../common-integracion.yml
+    service: batch_jobs
+  environment:
+  - JAVA_OPTS=-Dgrails.env=test
