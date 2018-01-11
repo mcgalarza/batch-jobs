@@ -18,7 +18,7 @@ public class RequestNeotel {
     private String param9; //codigoPostal;precioFinal;descripcionProducto;marca;modelo;url;descripcionError
     private String param10; //id facebook
     private String param11; //id messenger
-    private String param12; //horario llamada
+    private String param12; //horario llamadas
 
     public RequestNeotel(Transaccion transaccion, Integer idTask) {
         Map<String, String> map = transaccion.requestNeotelDTO();
