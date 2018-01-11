@@ -4,7 +4,6 @@ import com.redbee.batchjobs.batch.JobCompletionNotificationListener;
 import com.redbee.batchjobs.model.Transaccion;
 import com.redbee.batchjobs.repository.TransaccionRepository;
 import com.redbee.batchjobs.util.FechaUtil;
-import org.joda.time.DateTime;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;

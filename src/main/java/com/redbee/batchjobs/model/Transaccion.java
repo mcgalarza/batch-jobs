@@ -1,7 +1,11 @@
 package com.redbee.batchjobs.model;
 
 import javax.persistence.*;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Entity
 @Table(name = "b2c_transacciones")
@@ -97,6 +101,76 @@ public class Transaccion {
     @Column(name = "fecha_actualizacion")
     @Temporal(TemporalType.DATE)
     private Date fechaActualizacion;
+
+    public Map<String, String> requestNeotelDTO() {
+        Map<String, String> map = new HashMap<>();
+
+        String idProducto = this.getIdProducto() != null ? this.getIdProducto().toString() : "";
+        map.put("idProducto", idProducto);
+
+        String codArea = this.getCodArea() != null ? this.getCodArea() : "";
+        map.put("codArea", codArea);
+
+        String nroCeluar = this.getNroCelular() != null ? this.getNroCelular() : "";
+        map.put("nroCelular", nroCeluar);
+
+        String email = this.getEmail() != null ? this.getEmail() : "";
+        map.put("email", email);
+
+        String nombre = this.getNombre() != null ? this.getNombre() : "";
+        map.put("nombre", nombre);
+
+        String apellido = this.getApellido() != null ? this.getApellido() : "";
+        map.put("apellido", apellido);
+
+        String nroDocumento = this.getNroDocumento() != null ? this.getNroDocumento() : "";
+        map.put("nroDocumento", nroDocumento);
+
+        String codPostal = this.getCodigoPostal() != null ? this.getCodigoPostal().toString() : "";
+        map.put("codPostal", codPostal);
+
+        String marca = this.getMarca() != null ? this.getMarca() : "";
+        map.put("marca", marca);
+
+        String modelo = this.getModelo() != null ? this.getModelo() : "";
+        map.put("modelo", modelo);
+
+        map.put("url", "ecommerce");
+        map.put("descripcion", "leads neotel");
+
+        String fechaNacimiento = this.getFechaNacimiento() != null ? this.getFechaNacimiento().toString() : "";
+        map.put("fechaNacimiento", fechaNacimiento);
+
+        String calle = this.getCalle() != null ? this.getCalle() : "";
+        map.put("calle", calle);
+
+        String nroCalle = this.getNroCalle() != null ? this.getNroCalle().toString() : "";
+        map.put("nroCalle", nroCalle);
+
+        String piso = this.getPiso() != null ? this.getPiso() : "";
+        map.put("piso", piso);
+
+        String depto = this.getDepartamento() != null ? this.getDepartamento() : "";
+        map.put("depto", depto);
+
+        String anioMoto = this.getAnioMoto() != null ? this.getAnioMoto().toString() : "";
+        map.put("anioMoto", anioMoto);
+
+        String dominio = this.getDominio() != null ? this.getDominio() : "";
+        map.put("dominio", dominio);
+
+        String motor = this.getNroMotor() != null ? this.getNroMotor() : "";
+        map.put("motor", motor);
+
+        String chasis = this.getNroChasis() != null ? this.getNroChasis() : "";
+        map.put("chasis", chasis);
+
+        String fechaInicioVigencia = this.getInicioVigencia() != null ? this.getInicioVigencia().toString() : "";
+        map.put("fechaInicioVigencia", fechaInicioVigencia);
+
+
+        return map;
+    }
 
     public Long getId() {
         return id;
